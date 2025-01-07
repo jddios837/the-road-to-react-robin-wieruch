@@ -1,4 +1,4 @@
-function App() {
+const App = () => {
     const welcome = {
         greeting: 'Hey',
         title: 'React',
@@ -11,37 +11,29 @@ function App() {
         { title: 'Item 4', url: 'https://google.com', author: 'Author 4', num_comments: 40, points: 400, objectID: 4 },
     ]
 
-    function getTitle(title) {
-        return "Get Title: " + title;
-    }
+    const getTitle = (title) => "Get Title: " + title;
 
-    function Search() {
-        return (
-            <div>
-                <label htmlFor="search">Search: </label>
-                <input id="search" type="text"/>
-            </div>
-        );
-    }
+    const Search = () => (
+        <div>
+            <label htmlFor="search">Search: </label>
+            <input id="search" type="text"/>
+        </div>
+    )
 
-    function List() {
-        return (
-            <ul>
-            {listObj.map((item) => {
-                    return (
-                        <li key={item.objectID}>
-                        <span>
-                            <a href={item.url}>{item.title}</a>
-                        </span>
-                        <span>{item.author}</span>
-                        <span>{item.num_comments}</span>
-                        <span>{item.points}</span>
-                        </li>
-                    );
-                })}
-            </ul>
-        );
-    }
+    const List = () => (
+        <ul>
+            {listObj.map((item) => (
+                <li key={item.objectID}>
+                    <span>
+                        <a href={item.url}>{item.title}</a>
+                    </span>
+                    <span>{item.author}</span>
+                    <span>{item.num_comments}</span>
+                    <span>{item.points}</span>
+                </li>
+            ))}
+        </ul>
+    )
 
     return (
         <div>
@@ -51,6 +43,8 @@ function App() {
 
             <hr/>
 
+            <List />
+            <List />
             <List />
         </div>
     )
